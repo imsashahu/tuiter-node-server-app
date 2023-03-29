@@ -6,7 +6,10 @@ import UserController from "./controllers/users/users-controller.js";
 import TuitsController from "./controllers/tuits/tuits-controller.js";
 
 import mongoose from "mongoose";
-mongoose.connect(process.env.DB_CONNECTION_STRING);
+mongoose.connect(
+  process.env.DB_CONNECTION_STRING ||
+    "mongodb+srv://admin:1234@cluster0.lqnb1ff.mongodb.net/?retryWrites=true&w=majority"
+);
 
 const app = express();
 app.use(cors());
